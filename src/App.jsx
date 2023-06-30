@@ -3,29 +3,32 @@ import { useState } from 'react'
 import Card from './components/Card'
 import Thanks from './components/Thanks'
 
-function App() {
-  const [rate, setRate] = useState(false)
-  const [id, setId] = useState('')
+const App = () => {
+  const [rate, setRate] = useState(null)
+  const [submit, setSubmit] = useState(false)
 
-  const handleRate = (e) => {
-    setId(e.target.id)
-    setRate(!e.target.rate)
+  const handleSubmit = () => {
+    setSubmit(true)
   }
-  console.log(id);
-  console.log(rate);
+
+  const handleRate = (id) => {
+    setRate(id)
+  }
 
   return (
     <>
-      <div key = {id} className='card-container'>
+      <div className={submit ? 'card-container hide' : 'card-container'}>
         <Card
-        key = {id}
-        id={id}
         handleRate={handleRate}
         rate={rate}
+        handleSubmit={handleSubmit}
+    
         />
       </div>
-      <div className='thanks-container hide'>
-        <Thanks />
+      <div className={submit ? 'thanks-container' : 'thanks-container hide'}>
+        <Thanks 
+        rate={rate}
+        />
       </div>
     </>
   )
