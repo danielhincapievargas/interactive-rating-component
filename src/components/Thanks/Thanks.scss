@@ -1,0 +1,34 @@
+@import '../../styles/abstract/variables.scss';
+
+img {
+    margin: 0 auto;
+    width: 140px;
+    margin-top: 30px;
+    margin-bottom: 28px;
+}
+
+.rate {
+    text-align: center;
+    width: 180px;
+    font-size: 15px;
+    padding: 6px;
+    background-color: $medium-blue;
+    color: $primary-color;
+    border-radius: 20px;
+    margin-bottom: 28px;
+}
+
+h1 {
+    color: $white;
+    margin-bottom: 12px;
+    font-weight: 400;
+}
+
+.thanks-text {
+    text-align: center;
+    margin-right: 30px;
+    margin-left: 30px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: $medium-grey;
+}

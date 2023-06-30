@@ -1,0 +1,35 @@
+@import './styles/abstract/variables.scss';
+
+#root {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    place-items: center;
+    min-width: 320px;
+    min-height: 100vh;
+    background-color: $very-dark-blue;
+}
+
+@mixin theme($theme: $dark-blue) {
+    display: flex;
+    flex-direction: column;
+    width: 360px;
+    height: 400px;
+    background-color: $theme;
+    border-radius: 30px;
+    @media (min-width: 768px) {
+        width: 400px;
+    }
+}
+
+.card-container {
+    @include theme;
+}
+.thanks-container {
+    @include theme;
+    align-items: center;
+}
+
+.hide {
+    display: none;
+}

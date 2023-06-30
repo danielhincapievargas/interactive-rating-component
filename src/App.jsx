@@ -1,33 +1,32 @@
+import './App.scss'
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Card from './components/Card'
+import Thanks from './components/Thanks'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [rate, setRate] = useState(false)
+  const [id, setId] = useState('')
+
+  const handleRate = (e) => {
+    setId(e.target.id)
+    setRate(!e.target.rate)
+  }
+  console.log(id);
+  console.log(rate);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div key = {id} className='card-container'>
+        <Card
+        key = {id}
+        id={id}
+        handleRate={handleRate}
+        rate={rate}
+        />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div className='thanks-container hide'>
+        <Thanks />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
